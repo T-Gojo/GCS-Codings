@@ -1,6 +1,5 @@
 import logging
 import apache_beam as beam
-from google.cloud import bigquery
 from apache_beam.options.pipeline_options import PipelineOptions
 
 beam_options = PipelineOptions(

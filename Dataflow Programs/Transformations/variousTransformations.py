@@ -1,7 +1,7 @@
 import apache_beam as beam
 
 side_list = list()
-with open('resource\exclude_ids.txt', 'r') as my_file:
+with open('resources\exclude_ids.txt', 'r') as my_file:
     for line in my_file:
         side_list.append(line.rstrip())
 
@@ -18,7 +18,7 @@ class RemovingBrandNames(beam.DoFn):
 
 initial_pc = (
         p
-        | "Read from text file" >> beam.io.ReadFromText('resource\myntraDatasheet.csv', skip_header_lines=True)
+        | "Read from text file" >> beam.io.ReadFromText('resources\myntraDatasheet.csv', skip_header_lines=True)
         | "ParDo with side inputs" >> beam.ParDo(RemovingBrandNames(), side_list)
     # | beam.Filter(lambda record: record[4] == 'Men')
 
