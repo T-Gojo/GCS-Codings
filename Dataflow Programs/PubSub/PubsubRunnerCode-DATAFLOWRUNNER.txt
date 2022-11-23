@@ -1,0 +1,14 @@
+python pubSubStreaming2.py \
+  --project=practice-id1 \
+  --region=asia-east2 \
+  --input_topic=projects/practice-id1/topics/in-2-gcstobucket \
+  --output_path=gs://pubsubtest-1/output/slidingwindows/output \
+  --runner=DataflowRunner \
+  --window_size=2 \
+  --num_shards=5 \
+  --temp_location=gs://pubsubtest-1/temp
+
+
+//input file lines to topic
+
+cat grocery.txt | while read line; do gcloud pubsub topics publish projects/practice-id1/topics/in-2-gcstobucket --message "$line"; done

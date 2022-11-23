@@ -1,0 +1,12 @@
+{
+  "description": "Pipeline for Wordcount",
+  "name": "wordCountTemplate",
+  "parameters": [
+    {
+       "name": "input",
+       "helpText": "Enter input file",
+       "label": "Input Parameter",
+       "is_optional": false
+    }
+  ]
+}
